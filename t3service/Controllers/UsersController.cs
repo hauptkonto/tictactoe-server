@@ -9,7 +9,7 @@ using t3service.Models;
 
 namespace t3service.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UsersController : ControllerBase
     {

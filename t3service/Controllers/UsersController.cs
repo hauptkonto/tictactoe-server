@@ -36,6 +36,22 @@ namespace t3service.Controllers
             return Ok(users);
         }
 
+        // GET: api/Users/5
+        [HttpGet("ByName/{username}")]
+        public async Task<IActionResult> GetUser([FromRoute] string username)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var users = await _context.Users.Where(x => x.Name == username).FirstOrDefaultAsync();
+            if (users == null)
+            {
+                return NotFound();
+            }
+            return Ok(users);
+        }
+
         // POST: api/Users
         [HttpPost]
         public async Task<IActionResult> PostUsers([FromBody] Users users)
@@ -61,7 +77,7 @@ namespace t3service.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUsers", new { id = users.Id }, users);
+            return Ok("{\"Id\":\"" + users.Id + "\", \"Name\":\"" + users.Name+"\"}");
         }
 
         // DELETE: api/Users/5

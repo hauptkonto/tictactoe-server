@@ -47,6 +47,7 @@ namespace t3service.Helpers
                         TriggerAI(game, board);
                     }
                     // Save game
+                    game.LastUpdated = DateTime.UtcNow;
                     _context.Update<Games>(game);
                     _context.SaveChanges();
                     return game;

@@ -31,7 +31,9 @@ namespace t3service.Controllers
         [HttpPost]
         public ActionResult<Games> Move([FromBody] Movement movement)
         {
-            return Ok("move");
+            GameManager gm = new GameManager();
+            Games game = gm.Move(movement);
+            return Ok(game);
         }
 
         /**
@@ -40,7 +42,9 @@ namespace t3service.Controllers
         [HttpGet]
         public ActionResult<Games> GetGame([FromRoute] Guid gameId)
         {
-            return Ok("GetGame");
+            GameManager gm = new GameManager();
+            Games game = gm.GetGame(gameId);
+            return Ok(game);
         }
     }
 }

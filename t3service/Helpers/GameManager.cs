@@ -50,7 +50,6 @@ namespace t3service.Helpers
                     _context.Update<Games>(game);
                     _context.SaveChanges();
                     return game;
-
                 }
             }
             return game;

@@ -17,7 +17,7 @@ namespace t3service.Controllers
          * Creates a new game in the database. P2 will always be the computer for now.
          */
         // GET api/values
-        [HttpPost]
+        [HttpPost("NewGame")]
         public ActionResult<Games> NewGame([FromBody] Games game)
         {
             GameManager gm = new GameManager();
@@ -28,7 +28,7 @@ namespace t3service.Controllers
         /**
          * Validates and performs movement. It's a game updater.
          */
-        [HttpPost]
+        [HttpPost("Move")]
         public ActionResult<Games> Move([FromBody] Movement movement)
         {
             GameManager gm = new GameManager();
@@ -39,7 +39,7 @@ namespace t3service.Controllers
         /**
          * Used to obtain an already existing game.
          */
-        [HttpGet]
+        [HttpGet("GetGame")]
         public ActionResult<Games> GetGame([FromRoute] Guid gameId)
         {
             GameManager gm = new GameManager();

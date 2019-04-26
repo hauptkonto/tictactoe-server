@@ -76,8 +76,7 @@ namespace t3service.Controllers
                     throw;
                 }
             }
-
-            return Ok("{\"Id\":\"" + users.Id + "\", \"Name\":\"" + users.Name+"\"}");
+            return Ok(users);
         }
 
         // DELETE: api/Users/5

@@ -1,12 +1,28 @@
 # tictactoe-server
-A .NET back end server for playing tic-tac-toe
+A .NET back end server for playing tic-tac-toe.
+It was developed as part of a coding challenge for a job interview. The front-end part can be found here: https://github.com/hauptkonto/tictactoe-client
+
+# How to Run
+  In order to run this game, the following steps need to be taken.
+
+## Database Setup
+  MS SQL Server must be installed in the host computer and contain a database named "tictactoe" with the tables described in the ```Tasks List >> Persistence (SQL)``` section.
+
+## Back-end server Setup
+  Clone the back end from this repo (current): https://github.com/hauptkonto/tictactoe-server
+  Modify the database connections string if needed. It's hardcoded in Startup.cs line 38.
+  Then, simply build and start the server using Visual Studio Code.
+  
+## Front-end Setup
+  Clone the front end from this repo: https://github.com/hauptkonto/tictactoe-client
+  Install dependencies with ```npm install``` and then run the project with ```npm start```.
 
 
 # Tasks List
 
 ## General tasks:
 1) Create Github Repo [done]
-2) Deploy the game in a server so that it can be played online [partially done].
+2) Deploy the game in a server so that it can be played online [not available anymore].
 3) Don't use more than 5 hours in development (good aesthetics, symbol selection, partial time tracking, code efficiency and bug fixing are to be sacrificed in order to attempt to obtain a working product) [done].
 
 ## Backend (the current repo)
@@ -37,6 +53,7 @@ A .NET back end server for playing tic-tac-toe
 	- [not done] show a timer in the upper corner but keep track of time in the back end.
 
 ## Persistence (SQL): 
+The back end works with a MS SQL Server database. The connection string is hardcoded in Startup.cs line 38.
 1) [done] SQL query for creating the Users and Games tables:
 	USE [tictactoe]
 	GO
@@ -60,11 +77,6 @@ A .NET back end server for playing tic-tac-toe
 	)
 	GO
 
-2) Deploy database, front and back end to AWS [partially done]:
-  - I managed to deploy a partially working version with some bugs and not many good practices (which was done to cut the development time as much as possible). However, none of those compoents can communicate with each other (yet). There's some misconfiguration that doesn't allow them to communicate.
-  - The links where the app is deployed are:
-  FrontEndApp: ec2-18-219-194-195.us-east-2.compute.amazonaws.com
-  BackendServer: ec2-18-219-194-195.us-east-2.compute.amazonaws.com:8080 (Must first be started within the server. It's not configured to automatically run as a service. That's work yet to be done).
-  Database: mydbinstance.c1fitjihlfrq.us-east-2.rds.amazonaws.com (requires a password that I'm not willing to provide right now)
-  - Although the game doesn't work in AWS, it can be deployed and properly played in a local environment.
+2) Deploy database, front and back end to AWS [done, but no longer available]:
+  This game is no longer available on it's AWS server since it's not worth it to pay for it's availability. Still, it can be deployed and properly played in a local environment.
   

@@ -15,7 +15,7 @@ namespace t3service.Helpers
             // Move on random position.
             Random rnd = new Random();
             int position = rnd.Next(0, positions.Length);
-            board[position] = 2; // Computer is always player 2.
+            board[positions[position]] = 2; // Computer is always player 2.
             game.UpdateGameStatus(board);
             return game;
         }

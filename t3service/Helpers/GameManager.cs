@@ -62,12 +62,11 @@ namespace t3service.Helpers
          */
         private bool TryMovement(Games game, int[] board, Movement movement)
         {
-            int position = 3 * movement.y + movement.x;
-            if (board[position] == 0)
+            if (board[movement.position] == 0)
             {
                 // Movement is possible, so go ahead with it
                 int symbol = game.Player1Id == movement.playerId ? 1 : 2;
-                board[position] = symbol;
+                board[movement.position] = symbol;
                 game.UpdateGameStatus(board);
                 return true;
             }
